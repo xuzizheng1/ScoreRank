@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>排名</h2>
+
+<form action="." method="post">
+    请输入客户端号:<br>
+    <input type="text" name="client" id=""><br>
+    {% csrf_token %}
+    请输入排名区间：<br>
+    {% csrf_token %}
+    <input type="text" name="min" id=""> -
+    <input type="text" name="max" id="">
+    <input type="submit" value="搜索">
+</form>
+
+排名 客户端 分数<br>
+{% for s in scores %}
+    {{ forloop.counter }} {{ s.client }} {{ s.score }}<br>
+{% endfor %}
+
+</body>
+</html>
